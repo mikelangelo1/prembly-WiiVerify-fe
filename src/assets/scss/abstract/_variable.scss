@@ -1,0 +1,49 @@
+// stylelint-disable-next-line scss/dollar-variable-default
+$primary: #1652f0;
+$secondary: #f73164 !default;
+$success: #51bb25 !default;
+$info: #a927f9 !default;
+$warning: #f8d62b !default;
+$danger: #dc3545 !default;
+$light: #f7f6ff !default;
+$dark: #070707;
+$purple: #5848bb;
+
+// Body
+$body-bg: #f1f6fd;
+$body-color: #a2a5b9;
+
+$inactive-border: transparent;
+
+// Typography
+$font-family-base: "Inter", sans-serif;
+$headings-font-weight: 600;
+$font-size-base: 0.875rem !default;
+$font-weight-base: 400 !default;
+// $line-height-base    : 1.6;
+$headings-line-height: 1.6;
+$h1-font-size: 2.25rem;
+$h2-font-size: 1.875rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.125rem;
+$h5-font-size: 1rem;
+$h6-font-size: 1rem;
+
+$text-muted: #7184ad;
+
+$heading-primary-size: 1.8rem;
+$sub-heading-size: 1.6rem !default;
+$grid-gutter-width: 30px;
+$dropdown-lik-color: $body-color;
+$border-color: #f1f6fd;
+$headings-color: #212529 !default;
+$table-striped-bg: $body-bg;
+$border-radius: 6px !default;
+$input-btn-focus-width: 0rem !default;
+
+// custom
+$radius: $border-radius;
+$shadow: 0 0 20px rgba(89, 102, 122, 0.05);
+$shadow-sm: 0 0.125rem 0.25rem rgba(227, 230, 236, 0.9);
+$shadow-lg: 0 1rem 3rem rgba(35, 38, 45, 0.275);
+$sidebar-width: 80px;

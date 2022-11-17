@@ -1,0 +1,240 @@
+.sidebar {
+    background      : darken($primary, 10%);
+    position        : fixed;
+    left            : 0px;
+    height          : calc(100%-20px);
+    width           : $sidebar-width;
+    top             : 0px;
+    z-index         : 3;
+    bottom          : 0px;
+    border-radius   : 0px;
+    box-shadow      : $shadow;
+    // border-right : 1px solid $border-color;
+
+
+    @include respond("tab-port") {
+        // width: 100px;
+    }
+
+    @include respond("phone-land") {
+        top          : auto;
+        bottom       : 0;
+        width        : 100%;
+        height       : 50px;
+        left         : 0;
+        border-radius: 0px;
+
+    }
+
+
+
+}
+
+.brand-logo {
+    // text-align: center;
+    margin: 20px 20px 20px;
+    text-align: center;
+
+    img {
+        // max-width: 35px;
+        filter   : brightness(100);
+    }
+
+    // .mini-logo {
+    //     display: none;
+    // }
+
+    // @include respond("tab-port") {
+    //     text-align: center;
+
+    //     .full-logo {
+    //         display: none;
+    //     }
+
+    //     .mini-logo {
+    //         display: block;
+    //     }
+    // }
+
+    @include respond("phone-land") {
+        display: none;
+    }
+}
+
+.menu {
+    margin-top: 30px;
+    padding   : 20px;
+    position  : relative;
+
+    @include respond("phone-land") {
+        margin-top: 0px;
+        padding   : 0px;
+        background: $primary;
+    }
+
+    ul {
+        @include respond("phone-land") {
+            display        : flex;
+            justify-content: space-around;
+            align-items    : center;
+        }
+
+        li {
+            // text-align: center;
+            margin-bottom: 8px;
+            border-radius: $radius;
+
+
+
+            &:hover,
+            &:focus,
+            &:active {
+
+                //    background: lighten($dark, 0%);
+                a {
+                    color: $white;
+
+                    .nav-text {
+                        display   : block;
+                        background: white;
+                        color     : $primary;
+
+                        @include respond("tab-port") {
+                            display: none;
+
+                        }
+                    }
+                }
+
+                i {
+                    color  : $white;
+                    opacity: 1;
+                }
+            }
+
+            &.active {
+                // background: $white;
+
+                i {
+                    color  : $white;
+                    opacity: 1;
+                }
+
+                span {
+                    color: $white;
+                }
+            }
+
+            i {
+                color       : $white;
+                font-size   : 20px;
+                opacity     : 0.6;
+                margin-right: 15px;
+                line-height : 0px;
+
+
+                @include respond("tab-port") {
+                    margin-right: 0px;
+
+                }
+            }
+
+            a {
+                padding              : 5px 8px;
+                display              : flex;
+                align-items          : center;
+                min-height           : 3.5rem;
+                // font-weight       : 600;
+                color                : $body-color;
+                // justify-content: center;
+
+                @include respond("tab-port") {
+                    justify-content: center;
+                }
+
+                .nav-text {
+                    display      : none;
+                    padding      : 3px 8px;
+                    border-radius: 4px;
+                    box-shadow   : $shadow;
+
+                    @include respond("tab-port") {
+                        display: none;
+
+                    }
+                }
+
+
+            }
+
+            &.logout {
+                position: fixed;
+                bottom  : 50px;
+                left    : 0;
+                right   : 0;
+                width   : 80px;
+
+                a {
+                    padding-left: 30px;
+                }
+
+                @include respond("tab-port") {
+                    right          : auto;
+                    justify-content: center;
+                    left           : 10px;
+                    width          : auto;
+                }
+
+                @include respond("phone-land") {
+                    position: relative;
+                    bottom  : 0;
+                    left    : auto;
+                    right   : auto;
+                    width   : auto;
+                 a {
+                        padding-left: 0px;
+                    }
+
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.card-limit-progress {
+    display: none;
+    @include respond("tab-land") {
+        display: none;
+    }
+
+    // background   : lighten($secondary, 5%);
+    background   : url('../images/bg/6.jpg');
+    position     : absolute;
+    bottom       : 150px;
+    padding      : 15px 20px;
+    margin       : 20px;
+    left         : 0;
+    right        : 0;
+    border-radius: $radius;
+
+    h5 {
+        font-size: 14px;
+        color    : $white;
+    }
+
+    p {
+        font-size: 12px;
+
+        strong {
+            color: $white;
+        }
+    }
+
+    .progress {
+        height          : 6px;
+        background-color: darken($light, 10%);
+    }
+}

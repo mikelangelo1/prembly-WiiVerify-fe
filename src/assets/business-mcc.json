@@ -1,0 +1,145 @@
+[
+  {
+    "code": "accounting_bookkeeping_services",
+    "value": "8931",
+    "name": "Accounting/Bookkeeping Services"
+  },
+  {
+    "code": "book_stores",
+    "value": "5942",
+    "name": "Book Stores"
+  },
+  {
+    "code": "books_periodicals_and_newspapers",
+    "value": "5192",
+    "name": "Books Periodicals and Newspapers"
+  },
+  {
+    "code": "camera_and_photographic_supply_stores",
+    "value": "5946",
+    "name": "Camera and Photographic Supply Stores"
+  },
+
+  {
+    "code": "commercial_equipment",
+    "value": "5046",
+    "name": "Commercial Equipment (Not Elsewhere Classified)"
+  },
+  {
+    "code": "commercial_footwear",
+    "value": "5139",
+    "name": "Commercial Footwear"
+  },
+  {
+    "code": "commercial_photography_art_and_graphics",
+    "value": "7333",
+    "name": "Commercial Photography Art and Graphics"
+  },
+  {
+    "code": "computer_programming",
+    "value": "7372",
+    "name": "Computer Programming"
+  },
+  {
+    "code": "computer_software_stores",
+    "value": "5734",
+    "name": "Computer Software Stores"
+  },
+  {
+    "code": "computers_peripherals_and_software",
+    "value": "5045",
+    "name": "Computers Peripherals and Software"
+  },
+  {
+    "code": "digital_goods_media",
+    "value": "5815",
+    "name": "Digital Goods Media - Books, Movies, Music"
+  },
+  {
+    "code": "digital_goods_applications",
+    "value": "5817",
+    "name": "Digital Goods - Applications (Excludes Games)"
+  },
+  {
+    "code": "digital_goods_games",
+    "value": "5816",
+    "name": "Digital Goods - Games"
+  },
+  {
+    "code": "digital_goods_large_volume",
+    "value": "5818",
+    "name": "Digital Goods - Large Digital Goods Merchant"
+  },
+
+  {
+    "code": "direct_marketing_catalog_merchant",
+    "value": "5964",
+    "name": "Direct Marketing - Catalog Merchant"
+  },
+  {
+    "code": "direct_marketing_other",
+    "value": "5969",
+    "name": "Direct Marketing - Other"
+  },
+
+  {
+    "code": "durable_goods",
+    "value": "5099",
+    "name": "Durable Goods (Not Elsewhere Classified)"
+  },
+
+  {
+    "code": "educational_services",
+    "value": "8299",
+    "name": "Educational Services"
+  },
+
+  {
+    "code": "general_services",
+    "value": "1520",
+    "name": "General Services"
+  },
+
+  {
+    "code": "membership_organizations",
+    "value": "8699",
+    "name": "Membership Organizations"
+  },
+  {
+    "code": "mens_womens_clothing_stores",
+    "value": "5691",
+    "name": "Mens Womens Clothing Stores"
+  },
+
+  {
+    "code": "miscellaneous_apparel_and_accessory_shops",
+    "value": "5699",
+    "name": "Miscellaneous Apparel and Accessory Shops"
+  },
+  {
+    "code": "miscellaneous_business_services",
+    "value": "7399",
+    "name": "Miscellaneous Business Services"
+  },
+  {
+    "code": "miscellaneous_food_stores",
+    "value": "5499",
+    "name": "Miscellaneous Food Stores - Convenience Stores and Specialty Markets"
+  },
+
+  {
+    "code": "miscellaneous_general_services",
+    "value": "7299",
+    "name": "Miscellaneous General Services"
+  },
+  {
+    "code": "professional_services",
+    "value": "8999",
+    "name": "Professional Services"
+  },
+  {
+    "code": "other_services_not_specified",
+    "value": "1009",
+    "name": "Other services (not specified)"
+  }
+]

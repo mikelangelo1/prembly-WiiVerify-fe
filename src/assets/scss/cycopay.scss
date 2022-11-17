@@ -1,0 +1,59 @@
+@import "./abstract/variable";
+
+// form control
+.form-control,
+.form-select {
+  border-color: $inactive-border;
+
+  &.has-error {
+    border-color: $danger;
+  }
+
+  &:hover {
+    border-color: $inactive-border;
+  }
+
+  &:focus,
+  &:active,
+  &.active {
+    border-color: $inactive-border;
+  }
+
+  + .input-errors {
+    margin-top: 4px;
+    margin-left: 16px;
+    color: $danger;
+    text-align: left;
+  }
+}
+
+// ul.input-errors {
+//     li {
+//         list-style: disc;
+//     }
+// }
+
+.btn {
+  border-radius: 6px;
+}
+
+.auth-btn {
+  min-height: 45px;
+  font-weight: 500;
+  margin: auto;
+  width: 100%;
+  // max-width: 400px;
+  border-radius: 6px !important;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.section-padding {
+  padding: 16px 0px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
