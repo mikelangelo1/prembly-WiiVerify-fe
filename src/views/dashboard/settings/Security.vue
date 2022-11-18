@@ -32,7 +32,6 @@
                 v-b-modal.idCardModal
                 class="btn btn-primary"
                 variant="primary"
-                v-if="!isVerified"
               >
                 Upload Document
               </b-button>

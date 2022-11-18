@@ -1,7 +1,7 @@
 <template>
   <b-modal id="idCardModal" size="lg">
     <template #modal-header="{ close }">
-      <h5 class="modal-title" id="idCardModalLabel">Verify your ID card</h5>
+      <h5 class="modal-title" id="idCardModalLabel">Upload your ID card</h5>
       <b-button
         class="btn-close"
         data-dismiss="modal"
@@ -16,16 +16,16 @@
         <div :class="$style.border_warning">
           <h6 class="fw-3">Driving License or Government ID card</h6>
           <p class="mb-0">
-            Enter your ID detailes. It helps to ensure the safety and security of your
-            account
+            Uploading your ID helps as ensure the safety and security of your
+            founds
           </p>
-          <!-- <p class="float-right">Maximum file size is 2mb</p> -->
+          <p class="float-right">Maximum file size is 2mb</p>
         </div>
       </div>
 
       <div class="form-group">
         <label class="me-sm-2"> </label>
-        <!-- <div
+        <div
           :class="$style.file_uploader"
           @dragover.prevent="dragover"
           @dragleave.prevent="dragleave"
@@ -50,91 +50,61 @@
               </div>
             </label>
           </div>
-        </div> -->
-        <form
-          @submit.prevent="formSubmit"
-          id="payment-form"
-          class="sr-payment-form"
-        >
-          <div class="sr-combo-inputs-row">
-            <div class="col">
-              <label for="name"> NIN Number</label>
-              <input
-                ref="focusMe"
-                id="name"
-                v-model="accountName"
-                name="name"
-                placeholder="2234435353"
-                class="form-control"
-                required
-              />
-            </div>
-          </div>
-          <div class="sr-combo-inputs-row"></div>
-
-          <button
-            id="confirm-mandate"
-            class="btn btn-primary fw-5 router-link-exact-active router-link-active"
-            type="searchButton"
-          >
-            <div disabled class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Submit <span id="order-amount"></span></span>
-          </button>
-        </form>
-        <!-- <div class="file-upload-wrapper" data-text="front.jpg">
-          <input
-            name="file-upload-field"
-            type="file"
-            class="file-upload-field"
-            @change="selectFrontFile"
-            ref="file"
-          />
-
-          <button
-          class="btn btn-success"
-          :disabled="!currentFrontFile || frontUploadLoading"
-          @click="uploadFrontPage"
-        >
-          Upload
-        </button>
-
-        <div :class="$style.successMessage">
-          {{ frontUploadMssg }}
         </div>
-
-        </div> -->
-      </div>
-      <!-- <div class="form-group">
-        <label class="me-sm-2">Upload Back ID </label>
-        <div class="file-upload-wrapper" data-text="back.jpg">
-          <input
-            name="file-upload-field"
-            type="file"
-            class="file-upload-field"
-            ref="file"
-            @change="selectBackFile"
-          />
-
+        <!-- <div class="file-upload-wrapper" data-text="front.jpg">
+            <input
+              name="file-upload-field"
+              type="file"
+              class="file-upload-field"
+              @change="selectFrontFile"
+              ref="file"
+            />
+  
             <button
             class="btn btn-success"
-            :disabled="!currentBackFile || backUploadLoading"
-            @click="uploadBackPage"
+            :disabled="!currentFrontFile || frontUploadLoading"
+            @click="uploadFrontPage"
           >
             Upload
           </button>
+  
           <div :class="$style.successMessage">
-            {{ backUploadMssg }}
+            {{ frontUploadMssg }}
           </div>
-        </div>
-      </div> -->
+  
+          </div> -->
+      </div>
+      <!-- <div class="form-group">
+          <label class="me-sm-2">Upload Back ID </label>
+          <div class="file-upload-wrapper" data-text="back.jpg">
+            <input
+              name="file-upload-field"
+              type="file"
+              class="file-upload-field"
+              ref="file"
+              @change="selectBackFile"
+            />
+  
+              <button
+              class="btn btn-success"
+              :disabled="!currentBackFile || backUploadLoading"
+              @click="uploadBackPage"
+            >
+              Upload
+            </button>
+            <div :class="$style.successMessage">
+              {{ backUploadMssg }}
+            </div>
+          </div>
+        </div> -->
     </form>
     <template hide-footer>
-      <!-- <button class="btn btn-primary" @click="$bvModal.hide('idCardModal')">
+      <button class="btn btn-primary" @click="$bvModal.hide('idCardModal')">
         Cancel
-      </button> -->
+      </button>
       <!-- <b-button v-b-modal.SuccessModal variant="success" @click="ok()">
-        Submit
-      </b-button> -->
+          Submit
+        </b-button> -->
     </template>
   </b-modal>
 </template>
@@ -217,7 +187,6 @@ export default {
       message: "",
       fileInfos: [],
       ok: "",
-      nin_number: "",
       // ID file handling ends
 
       //
@@ -493,29 +462,23 @@ export default {
         });
     },
 
-    async formSubmit() {
-      const config = {
+    async getFrontPagePresignedUrl() {
+      let config = {
         headers: {
           "x-access-token": this.$store.state.auth?.userData?.token,
         },
       };
-
-      let body = {
-        nin_number: this.nin_number,
-      };
-      axios
-        .post("v1/merchant/verify/verify-nin", body, config)
-        .then((res) => {
-          this.$toast.success("NIN Successfully verified!", {
-            timeout: 3000,
+      try {
+        const uploadConfig = await axios
+          .get("v1/merchant/document/", config)
+          .then((res) => {
+            return {
+              frontUrl: res?.data?.url,
+              frontKey: res?.data.key,
+            };
           });
-        })
-        .catch((error) => {
-          console.log(error);
-          this.$toast.success("NIN Successfully verified!", {
-            timeout: 3000,
-          });
-        });
+        this.frontPageUrl = uploadConfig;
+      } catch (err) {}
     },
     async getBackPagePresignedUrl() {
       let config = {
