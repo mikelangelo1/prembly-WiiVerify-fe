@@ -7,7 +7,7 @@
             <nav class="navbar">
               <div class="brand-logo">
                 <router-link to="#">
-                  <img src="../assets/images/logo.png" alt="" />
+                  <img src="../assets/images/logoi.png" alt="" />
                 </router-link>
               </div>
               <div class="header-right">
