@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <label class="me-sm-2"> </label>
-        <div
+        <!-- <div
           :class="$style.file_uploader"
           @dragover.prevent="dragover"
           @dragleave.prevent="dragleave"
@@ -50,8 +50,8 @@
               </div>
             </label>
           </div>
-        </div>
-        <!-- <div class="file-upload-wrapper" data-text="front.jpg">
+        </div> -->
+        <div class="file-upload-wrapper" data-text="front.jpg">
             <input
               name="file-upload-field"
               type="file"
@@ -72,7 +72,7 @@
             {{ frontUploadMssg }}
           </div>
   
-          </div> -->
+          </div>
       </div>
       <!-- <div class="form-group">
           <label class="me-sm-2">Upload Back ID </label>
