@@ -1,10 +1,9 @@
 import axios from "axios";
 
-// let baseURL = "https://api.cycopay.com/api/";
-let baseURL = "http://localhost:5000/api/";
+let baseURL = "https://swift-pay.herokuapp.com/api/";
 
 if (window.location.origin?.includes("localhost")) {
-  baseURL = "http://localhost:5000/api/";
+  baseURL = "https://swift-pay.herokuapp.com/api/";
 }
 
 const instance = axios.create({
