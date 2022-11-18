@@ -32,9 +32,9 @@
                 v-b-modal.idCardModal
                 class="btn btn-primary"
                 variant="primary"
-                v-if="isVerified"
+                v-if="!isVerified"
               >
-                Verify Document
+                Upload Document
               </b-button>
             </div>
           </div>
@@ -47,12 +47,12 @@
 </template>
 
 <script>
-import DashboardLayout from "../../../components/layouts/DashboardLayout.vue";
-import Upload from "../../../components/popup/Upload.vue";
+import DashboardLayout from "../../../components/layouts/DashboardLayout";
+import Upload from "../../../components/popup/Upload";
 import Success from "../../../components/popup/Success.vue";
 import moment from "moment";
 import I18nCountries from "i18n-iso-countries";
-// I18nCountries.registerLocale(require("../../../assets/countries-en.json"));
+I18nCountries.registerLocale(require("../../../assets/countries-en.json"));
 import Userservice from "../../../webServices/user.service";
 export default {
   components: {

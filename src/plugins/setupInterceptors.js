@@ -3,8 +3,7 @@ import TokenService from "../webServices/token.service";
 
 import EventBus from "../common/EventBus";
 
-// let baseURL = "https://api.cycopay.com/api/";
-let baseURL = "http://localhost:5000/api/";
+let baseURL = "https://swift-pay.herokuapp.com/";
 
 
 const setup = (store) => {

@@ -247,7 +247,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: "http://localhost:5000/",
+  base: "https://swift-pay.herokuapp.com/",
   routes,
 });
 
