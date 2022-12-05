@@ -3,7 +3,7 @@ import TokenService from "../webServices/token.service";
 
 import EventBus from "../common/EventBus";
 
-let baseURL = "https://swift-pay.herokuapp.com/";
+let baseURL = "https://swift-pay.onrender.com/";
 
 
 const setup = (store) => {

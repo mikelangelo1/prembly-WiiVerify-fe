@@ -247,7 +247,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: "https://swift-pay.herokuapp.com/",
+  base: "https://swift-pay.onrender.com/",
   routes,
 });
 
