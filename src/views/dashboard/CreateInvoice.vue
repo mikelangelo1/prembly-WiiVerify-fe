@@ -3,7 +3,7 @@
     <div>
       <b-alert show variant="warning" v-if="!isVerified">
         <h4 class="alert-heading">NOTE!</h4>
-        <p v-if="!isVerified">
+        <p v-if="isVerified == null">
           You must complete all steps of account verification before creating an
           invoice. Click
           <router-link to="/verify-account"> here</router-link> to get verified.
