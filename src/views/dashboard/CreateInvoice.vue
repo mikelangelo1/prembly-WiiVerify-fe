@@ -186,7 +186,7 @@ export default {
       });
     Userservice.getVerificationStatus().then((res) => {
       console.log(res.data);
-      this.isVerified = res?.data?.isVerified;
+      this.isVerified = res?.data?.user?.individual?.address?.website;
     });
   },
 
