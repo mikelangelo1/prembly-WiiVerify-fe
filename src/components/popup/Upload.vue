@@ -25,14 +25,14 @@
 
       <div class="form-group">
         <label class="me-sm-2"> </label>
-        <!-- <div
+        <div
           :class="$style.file_uploader"
           @dragover.prevent="dragover"
           @dragleave.prevent="dragleave"
           @drop.stop.prevent="dropOn($event)"
         >
           <div class="text-center">
-            <h5>Drag and drop Front and Back ID</h5>
+            <h5>Drag and drop National ID</h5>
             <input
               type="file"
               multiple
@@ -50,61 +50,104 @@
               </div>
             </label>
           </div>
+        </div>
+        
+        <form
+          @submit.prevent="formSubmit"
+          id="payment-form"
+          class="sr-payment-form"
+        >
+        <div class="sr-combo-inputs-row">
+            <div class="col">
+              <label for="name">National Identity Number (NIN) </label>
+              <input
+                id="name"
+                v-model="nin_number"
+                class="form-control"
+                name="name"
+                placeholder="NIN"
+                required
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="sr-combo-inputs-row">
+            <div class="col">
+              <label for="name">Virtual National Identity Number (NIN) </label>
+              <input
+                id="name"
+                v-model="vNinNumber"
+                class="form-control"
+                name="name"
+                placeholder="Virtual NIN"
+                required
+                type="text"
+              />
+            </div>
+          </div>
+          <button
+            id="confirm-mandate"
+            class="btn btn-primary fw-5 router-link-exact-active router-link-active"
+            type="searchButton"
+          >
+            <div disabled class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Submit <span id="order-amount"></span></span>
+          </button>
+        </form>
+        <!-- <div class="file-upload-wrapper" data-text="front.jpg">
+          <input
+            name="file-upload-field"
+            type="file"
+            class="file-upload-field"
+            @change="selectFrontFile"
+            ref="file"
+          />
+
+          <button
+          class="btn btn-success"
+          :disabled="!currentFrontFile || frontUploadLoading"
+          @click="uploadFrontPage"
+        >
+          Upload
+        </button>
+
+        <div :class="$style.successMessage">
+          {{ frontUploadMssg }}
+        </div>
+
         </div> -->
-        <div class="file-upload-wrapper" data-text="front.jpg">
-            <input
-              name="file-upload-field"
-              type="file"
-              class="file-upload-field"
-              @change="selectFrontFile"
-              ref="file"
-            />
-  
+      </div>
+      <!-- <div class="form-group">
+        <label class="me-sm-2">Upload Back ID </label>
+        <div class="file-upload-wrapper" data-text="back.jpg">
+          <input
+            name="file-upload-field"
+            type="file"
+            class="file-upload-field"
+            ref="file"
+            @change="selectBackFile"
+          />
+
             <button
             class="btn btn-success"
-            :disabled="!currentFrontFile || frontUploadLoading"
-            @click="uploadFrontPage"
+            :disabled="!currentBackFile || backUploadLoading"
+            @click="uploadBackPage"
           >
             Upload
           </button>
-  
           <div :class="$style.successMessage">
-            {{ frontUploadMssg }}
+            {{ backUploadMssg }}
           </div>
-  
-          </div>
-      </div>
-      <!-- <div class="form-group">
-          <label class="me-sm-2">Upload Back ID </label>
-          <div class="file-upload-wrapper" data-text="back.jpg">
-            <input
-              name="file-upload-field"
-              type="file"
-              class="file-upload-field"
-              ref="file"
-              @change="selectBackFile"
-            />
-  
-              <button
-              class="btn btn-success"
-              :disabled="!currentBackFile || backUploadLoading"
-              @click="uploadBackPage"
-            >
-              Upload
-            </button>
-            <div :class="$style.successMessage">
-              {{ backUploadMssg }}
-            </div>
-          </div>
-        </div> -->
+        </div>
+      </div> -->
     </form>
     <template hide-footer>
-      <button class="btn btn-primary" @click="$bvModal.hide('idCardModal')">
+      <!-- <button class="btn btn-primary" @click="$bvModal.hide('idCardModal')">
         Cancel
-      </button>
+      </button> -->
       <!-- <b-button v-b-modal.SuccessModal variant="success" @click="ok()">
-          Submit
-        </b-button> -->
+        Submit
+      </b-button> -->
     </template>
   </b-modal>
 </template>
@@ -179,6 +222,8 @@ export default {
       currentBackFile: undefined,
       filesName: undefined,
       progress: 0,
+      nin_number: undefined,
+      vNinNumber: undefined,
       getPresignedUrlError: undefined,
       frontPageUrl: [],
       frontPageKey: undefined,
@@ -205,6 +250,10 @@ export default {
     this.getBackPagePresignedUrl();
   },
   methods: {
+    async formSubmit() {
+      this.verifyNIN();
+      return;
+    },
     getStripeAccount() {
       const config = {
         headers: {
@@ -459,6 +508,40 @@ export default {
         .catch((error) => {
           this.backUploadMssg = "Document not uploaded, please retry";
           this.backUploadLoading = false;
+        });
+    },
+
+    async verifyNIN() {
+      const config = {
+        headers: {
+          "x-access-token": this.$store.state.auth?.userData?.token,
+        },
+      };
+      let body = {
+        number: this.vNinNumber,
+        number_nin: this.nin_number,
+      };
+      axios
+        .post("v1/merchant/profile/verified", body, config)
+        .then((res) => {
+          console.log(res);
+          this.$toast.success("Payout method has been set!", {
+            timeout: 3000,
+          });
+          this.$router.push({
+            name: "VerifyAccount",
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log("add card endpoint failed ", error?.response?.data);
+          if (error?.response?.data) {
+            messageContainer.textContent =
+              error?.response?.data?.detail?.raw?.message ||
+              error?.response?.data?.error;
+            return;
+          }
+          messageContainer.textContent = "Error encountered while adding card";
         });
     },
 

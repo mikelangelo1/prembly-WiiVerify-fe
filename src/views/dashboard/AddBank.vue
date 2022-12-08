@@ -83,7 +83,37 @@
 
           <div class="sr-combo-inputs-row">
             <div class="col">
-              <label for="name">IBAN / Account Number </label>
+              <label for="name"> Account Number </label>
+              <input
+                ref="focusMe"
+                id="name"
+                v-model="accountNumber"
+                name="name"
+                placeholder="2386970707"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <div class="sr-combo-inputs-row">
+            <div class="col">
+              <label for="name"> BVN </label>
+              <input
+                ref="focusMe"
+                id="name"
+                v-model="bvn"
+                name="name"
+                placeholder="2386970707"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          
+
+          <div class="sr-combo-inputs-row">
+            <div class="col">
+              <label for="name">Bank Name </label>
               <input
                 id="name"
                 v-model="iban"
@@ -96,20 +126,6 @@
             </div>
           </div>
 
-          <div class="sr-combo-inputs-row">
-            <div class="col">
-              <label for="name">SWIFT </label>
-              <input
-                id="name"
-                v-model="swift_code"
-                class="form-control"
-                name="name"
-                placeholder=""
-                required
-                type="text"
-              />
-            </div>
-          </div>
           <div class="sr-combo-inputs-row"></div>
 
           <button
@@ -307,6 +323,7 @@ let countriesWithCurrency = countryCurrencies.map((countryCurrency) => {
   };
 });
 export default {
+  // eslint-disable-next-line vue/no-unused-components
   components: { DashboardLayout },
   data: function () {
     return {
@@ -315,6 +332,10 @@ export default {
       swift_code: undefined,
       paypal_email: undefined,
       iban: undefined,
+      accountNumber: undefined,
+      bvn: undefined,
+      bankName: undefined,
+    accountName: undefined,
       loading: false,
       currency_code: "",
       countriesWithCurrency: [...countriesWithCurrency],
@@ -383,6 +404,8 @@ export default {
         account_holder_name: this.accountName,
         bankName: this.bankName,
         iban: this.iban,
+        accountNumber: this.accountNumber,
+        bvn: this.bvn,
         swift_code: this.swift_code,
         paypal_email: this.paypal_email,
         payoutMethod: this.payoutMethod,
