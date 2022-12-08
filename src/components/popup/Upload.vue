@@ -534,7 +534,6 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          console.log("add card endpoint failed ", error?.response?.data);
         });
     },
 
