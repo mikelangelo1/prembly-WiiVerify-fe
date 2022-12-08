@@ -525,23 +525,16 @@ export default {
         .post("v1/merchant/profile/verified", body, config)
         .then((res) => {
           console.log(res);
-          this.$toast.success("Payout method has been set!", {
+          this.$toast.success("ID verified successfully!", {
             timeout: 3000,
           });
           this.$router.push({
-            name: "VerifyAccount",
+            name: "Index",
           });
         })
         .catch((error) => {
           console.log(error);
           console.log("add card endpoint failed ", error?.response?.data);
-          if (error?.response?.data) {
-            messageContainer.textContent =
-              error?.response?.data?.detail?.raw?.message ||
-              error?.response?.data?.error;
-            return;
-          }
-          messageContainer.textContent = "Error encountered while adding card";
         });
     },
 
