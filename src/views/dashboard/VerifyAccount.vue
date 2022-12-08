@@ -462,11 +462,11 @@
 
     <div class="privacy-link text-center mt-4">
       <span>&copy; </span>
-      <a href="https://cycopay.com">CycoPay</a>
+      <a href="#">SwiftPay</a>
       <span style="font-weight: 700"> · </span>
-      <a href="https://cycopay.com/company/terms-of-service">Terms</a>
+      <a href="#">Terms</a>
       <span style="font-weight: 700"> · </span>
-      <a href="https://cycopay.com/company/privacy-policy">Privacy Policy</a>
+      <a href="#">Privacy Policy</a>
     </div>
 
     <b-modal ref="my-modal" hide-footer title="Details submitted">

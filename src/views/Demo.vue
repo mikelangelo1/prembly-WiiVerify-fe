@@ -32,9 +32,9 @@
         <div class="row align-items-center justify-content-between">
           <div class="col-xl-6 col-md-6">
             <div class="intro-content my-5">
-              <h1>CycoPay - Online payment management dashboard</h1>
+              <h1>SwiftPay - Online payment management dashboard</h1>
               <p>
-                CycoPay is the complete UX & UI dashboard for online payment.
+                SwiftPay is the complete UX & UI dashboard for online payment.
                 Here included balance, bill, invoice, and all user setting pages
                 including profile, application, activity, payment method, api,
                 sign in & sign up etc.

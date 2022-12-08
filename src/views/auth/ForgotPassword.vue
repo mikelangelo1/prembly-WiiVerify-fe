@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="privacy-link text-center mt-4">
-      <a href="https://cycopay.com/company/privacy-policy">Privacy Policy</a>
+      <a href="#">Privacy Policy</a>
     </div>
   </auth-layout>
 </template>

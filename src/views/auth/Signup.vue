@@ -313,13 +313,13 @@
                   >
                     I certify that I have read and agree to the
                     <a
-                      href="https://www.cycopay.com/company/acceptable-use-policy"
+                      href="#"
                       class="text-primary"
                       >Use Agreement</a
                     >
                     and
                     <a
-                      href="https://www.cycopay.com/company/terms-of-service"
+                      href="#"
                       class="text-primary"
                       >Terms of Service</a
                     >.

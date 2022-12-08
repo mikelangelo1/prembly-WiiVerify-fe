@@ -7,7 +7,7 @@
             <h4 class="card-title">Integration</h4>
           </div>
           <div class="card-body">
-            <p>WooCommerce Integration at github.com/cycopay</p>
+            <p>WooCommerce Integration at github.com/swiftpay</p>
             <p>
               Note that we are only able to support
               <a
